@@ -133,6 +133,9 @@ void Menu::animation(int &coordinate, int target, bool xAxis, bool positiveToggl
 {
     int &menuCoord = xAxis ? m_menuContainer.x : m_menuContainer.y;
 
+    SDL_Rect clearRect;
+    clearRect = {m_menuContainer.x, m_menuContainer.y, m_menuContainer.w, m_menuContainer.h};
+
     if (positiveToggleSpeed)
     {
         while (coordinate < target)
@@ -147,7 +150,7 @@ void Menu::animation(int &coordinate, int target, bool xAxis, bool positiveToggl
             std::cout << coordinate << " ";
 
             SDL_SetRenderDrawColor(m_renderer, m_windowBackground.r, m_windowBackground.g, m_windowBackground.b, m_windowBackground.a);
-            SDL_RenderClear(m_renderer);
+            SDL_RenderFillRect(m_renderer, &clearRect);
             render();
             SDL_RenderPresent(m_renderer);
         }
@@ -166,7 +169,7 @@ void Menu::animation(int &coordinate, int target, bool xAxis, bool positiveToggl
             std::cout << coordinate << " ";
 
             SDL_SetRenderDrawColor(m_renderer, m_windowBackground.r, m_windowBackground.g, m_windowBackground.b, m_windowBackground.a);
-            SDL_RenderClear(m_renderer);
+            SDL_RenderFillRect(m_renderer, &clearRect);
             render();
             SDL_RenderPresent(m_renderer);
         }
@@ -299,7 +302,9 @@ int main()
     menu4.addItem(new SliderMenuItem(renderer, FONTPATH, FONTSIZE, textColor, "Gurka"));
     menu4.addItem(new SliderMenuItem(renderer, FONTPATH, FONTSIZE, textColor, "About"));
     menu4.addItem(new SliderMenuItem(renderer, FONTPATH, FONTSIZE, textColor, "Gurka"));
-    menu4.addItem(new SliderMenuItem(renderer, FONTPATH, FONTSIZE, textColor, "About"));
+
+    // för att stänga av tracker, dvs att menuföremålet visar att den är iklickad:
+    // menu4.getMenuItem(0).setClickedTracker(false);
 
     while (running)
     {

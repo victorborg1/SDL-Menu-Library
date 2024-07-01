@@ -12,9 +12,13 @@ public:
     void handleEvent(SDL_Event &e) override;
     bool isClicked() override;
     void setClickedStatus(bool status) override;
+    void setClickedTracker(bool status) override;
 
 private:
     bool m_clicked;
+    bool m_clickedTracker;
+    SDL_Rect m_clickedTrackerRect;
+    void drawTrackerRect(int x, int y);
 };
 
 #endif // __MENULIBRARY_INCLUDE_BUTTONMENUITEM_H_

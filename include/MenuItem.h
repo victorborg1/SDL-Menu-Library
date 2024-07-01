@@ -12,11 +12,10 @@ public:
     virtual ~MenuItem();
     virtual void render(int x, int y, int width, int height, SDL_Color menuBackground, SDL_Color toggleBackground, uint8_t opacity);
     virtual void handleEvent(SDL_Event &e);
-
     virtual bool isClicked() { return false; }
     virtual void setClickedStatus(bool status) {}
-
     virtual int getSliderValue() { return 0; }
+    virtual void setClickedTracker(bool status) {}
 
 protected:
     int m_itemWidth, m_itemHeight;
