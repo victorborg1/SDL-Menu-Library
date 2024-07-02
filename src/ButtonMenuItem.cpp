@@ -19,7 +19,7 @@ void ButtonMenuItem::render(int x, int y, int width, int height, SDL_Color menuB
     SDL_SetRenderDrawBlendMode(m_renderer, SDL_BLENDMODE_BLEND);
     SDL_RenderFillRect(m_renderer, &m_borderRect);
 
-    SDL_Surface *textSurface = TTF_RenderText_Blended(m_font, m_label.c_str(), m_textColor);
+    SDL_Surface *textSurface = TTF_RenderUTF8_Blended(m_font, m_label.c_str(), m_textColor);
     SDL_Texture *textTexture = SDL_CreateTextureFromSurface(m_renderer, textSurface);
     m_textRect = {x + (width / 2) - (textSurface->w / 2), y + (height / 2) - (textSurface->h / 2), textSurface->w, textSurface->h};
     SDL_RenderCopy(m_renderer, textTexture, NULL, &m_textRect);

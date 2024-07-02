@@ -295,7 +295,7 @@ int main()
     menu3.addItem(new ButtonMenuItem(renderer, FONTPATH, FONTSIZE, textColor, "Hem"));
 
     Menu menu4(renderer, Menu::Type::LEFT, WINDOW_WIDTH * 2, WINDOW_HEIGHT / 2, MARGIN, SDLK_4, bg, menuBg, hoverColor, borderColor, opacity, visibleBorder);
-    menu4.addItem(new ButtonMenuItem(renderer, FONTPATH, FONTSIZE, textColor, "Hem"));
+    menu4.addItem(new ButtonMenuItem(renderer, "src/../fonts/emojifont.ttf", FONTSIZE, textColor, "\xE2\x98\x80 \xF0\x9F\x8C\x99 \xF0\x9F\x8C\x9E"));
     menu4.addItem(new ButtonMenuItem(renderer, FONTPATH, FONTSIZE, textColor, "Hem"));
     menu4.addItem(new ButtonMenuItem(renderer, FONTPATH, FONTSIZE, textColor, "Hem"));
     menu4.addItem(new ButtonMenuItem(renderer, FONTPATH, FONTSIZE, textColor, "Hem"));
